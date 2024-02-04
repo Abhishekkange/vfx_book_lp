@@ -68,8 +68,8 @@
             padding-bottom: 10px;
             border-radius: 10px;
             margin: 10px;
-            background-color: #FEC942;
-            color: black;
+            background-color: #1147bc;
+            color: white;
             border-style: none;
             text-decoration: none;;
 
@@ -164,6 +164,60 @@
             display: block;
             
         }
+        .carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .carousel img {
+    width: 100vw;
+    height: auto;
+  }
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin:20px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
 
 
     </style>
@@ -174,10 +228,10 @@
 
     <section class="Navbar">
 
-        <nav class="bg-blue-800 p-4">
+        <nav class="bg-white p-4">
             <div class="container  flex items-center justify-between">
                 <div class="flex items-center">
-                    <a href="#" class="text-white text-xl font-semibold">VFX Explained</a>
+                    <a href="#" class="text-black text-xl font-semibold">VFX Explained</a>
                 </div>
                 <div class="hidden md:flex space-x-4">
 
@@ -224,7 +278,7 @@
                 <div class="md:col-span-1 md:flex md:flex-col md:justify-center">
                     <h1 style="margin-top: 20px;" class="text-4xl md:text-5xl font-bold mb-4">How VFX Industry Works ?
                     </h1>
-                    <p style="margin: 15px;" class="text-base md:text-lg mb-4">Learn about each step that going while creating VFX shots</p>
+                    <p style="margin: 15px; size: 40px; font-size: 20px;width: 420px;" class="mb-4 p-2">Learn about each step that going while creating VFX shots. <br>How VFX Pipeline Works ? <br>What all process goes in creating VFX shots?</p>
 
                     <div class="buttons">
                         <a  href="buybooklink"><button>Buy on Amazon</button></a>
@@ -236,12 +290,12 @@
 
                 <!-- Image -->
                 <div class="md:hidden md:col-span-1">
-                    <img  style="box-shadow: 2px;" src="src/vfx web2.png" alt="Nearbykart software"
+                    <img  style="box-shadow: 2px;" src="src/vfxbook.png" alt="Nearbykart software"
                         class="mx-auto max-w-full h-auto mt-4">
                 </div>
                 <!-- Image on the right for larger screens -->
                 <div class="hidden md:block md:col-span-1">
-                    <img src="src/vfx web2.png" alt="Nearbykart software" class="mx-auto max-w-full h-auto">
+                    <img src="src/vfxbook.png" alt="Nearbykart software" class="mx-auto max-w-full h-auto">
                 </div>
 
             </div>
@@ -278,10 +332,27 @@
         <hr>
 
         <div class="awards">
-            <h2>Reviews</h2>
-            <img src="awards" alt="">
+            <h2>Amazon Reviews</h2>
+            <div class="carousel-container">
+                <div class="carousel">
+                  <img src="src/review1.png" alt="review1">
+                  <img src="src/review2.png" alt="review2">
+                  <img src="src/review3.png" alt="review3">
+                  <img src="src/review4.png" alt="review4">
+                  <!-- Add more images here -->
+                </div>
+              </div>
+              
 
         </div>
+        
+
+        <div class="button-container">
+            <a href="buybooklink" class="button">Buy on Amazon</a>
+            <a href="downloadsample" class="button">Download Free Sample</a>
+          </div>
+          
+       
 
         <footer class="bg-black text-white py-8">
             <div class=" mx-auto flex flex-col md:flex-row items-center justify-between">
@@ -299,6 +370,21 @@
                 </div>
             </div>
         </footer>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+  let currentIndex = 0;
+  const slides = document.querySelectorAll('.carousel img');
+  const totalSlides = slides.length;
+  const carousel = document.querySelector('.carousel');
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }, 3000); // Change slide every 3 seconds
+});
+
+        </script>
 
 </body>
 
